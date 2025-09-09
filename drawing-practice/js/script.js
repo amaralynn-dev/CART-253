@@ -25,11 +25,14 @@ function setup() {
 
 function draw(){
     drawSky();
+    drawHill(300, 600, 50);
+    drawHill(640, 500, 0);
+    drawHill(100, 550, 0);
     drawGround();
- //   drawMoon();
     drawPlanet();
-  //  drawAlien();
-   // drawCapsule();
+    drawAlien();
+    drawCapsule();
+    drawSaucer();
 }
 
 function drawSky() {
@@ -47,11 +50,11 @@ function drawGround() {
 }
 
 function drawCapsule() {
-    //half circle structure
+    //square structure
     push();
 	noStroke();
 	fill(227, 227, 227);
-	square(200, 240, 280, 180);
+	square(330, 200, 200);
 	pop();
 }
 
@@ -59,10 +62,20 @@ function drawAlien() {
     //lil half circle blob
      push();
 	noStroke();
-	fill(63, 181, 69);
-	circle(100, 240, 280, 180);
+	fill(63, 181, 50);
+    arc(100, 400, 100, 200, PI, 0);
 	pop();
 }
+
+function drawHill(position_x, size, dark){
+    // some awesome freaking hills, with custom colours and position to boot!
+    push();
+    noStroke();
+    fill(200-dark, 200-dark, 100-dark);
+    circle(position_x, 480, size)
+    pop();
+}
+
 
 function drawPlanet() {
     //  mars?    
@@ -70,5 +83,15 @@ function drawPlanet() {
 	noStroke();
 	fill(191, 77, 77);
 	circle(450, 100, 100);
+	pop();
+}
+
+function drawSaucer(){
+    // a beautiful flying saucer :)
+    push();
+    noStroke();
+    fill(175);
+    ellipse(150, 150, 200, 50);
+    ellipse(150, 135, 75, 75);
 	pop();
 }
